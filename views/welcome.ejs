@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("./partials/head"); -%>
+    <style>
+        @media only screen and (max-width: 768px) {
+            h2 {
+                margin-top: 30px;
+            }
+
+            form input, form textarea {
+                margin-top: 10px;
+            }
+        }
+
+        @media only screen and (min-width: 768px) {
+            .newsletter-input-container {
+                width: 50%;
+            }
+        }
+
+        .form-control {
+            margin-top: 10px;
+            resize: none;
+            color: #fff !important;
+        }
+
+        textarea {
+            height: 100px;
+        }
+
+        #button-addon2 {
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+
+        #newsletterInput {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+            box-shadow: none;
+
+        }
+
+        #showcaseButton {
+            color: #000;
+        }
+
+        #showcaseButton:hover {
+            color: #fff;
+        }
+
+    </style>
+</head>
+<body>
+    <%- include("./partials/nav"); -%>
+
+    <!-- Showcase -->
+
+    <section class="p-5 text-center text-lg-start">
+        <div class="container">
+            <%- include("partials/messages"); %>
+            <div class="d-md-grid">
+                <div class="row" id="showcase">
+                    <div class="col-md">
+                        <% if(user) { %>
+                            <h1>Welcome back, <span class="text-primary"><%= user.name %></span></h1>
+                        <% } else { %>
+                        <h1>Welcome!</h1>
+                        <% }; %>
+                        <p class="lead">AnonymBot is a multipurpose Discord bot with many features including: Music Commands, Moderation Commands, Fun Commands, Giveaway Commands and many, many more</p>
+                        <button class="btn btn-outline-info btn-lg" id="showcaseButton">Add To Discord</button>
+                    </div>
+                    <div class="col-md">
+                        <h2 class="mb-5">Contact with us</h2>
+                        <form action="/api/contact" method="post">
+                            <div class="mb-3">
+                                <label for="emailInput">Email Address</label>
+                                <input type="email" name="email" placeholder="example@mail.com" id="emailInput" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label for="nameInput">Name</label>
+                                <input type="text" name="name" placeholder="John Doe" id="nameInput" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label for="messageInput">Message</label>
+                                <textarea class="form-control" name="message" placeholder="Enter your message here" id="messageInput"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-outline-success">Send</button>
+                        </form>
+                    </div>
+                </div>
+        </div>
+    </section>
+
+    <section class="bg-primary py-5">
+        <div class="container">
+            <div class="d-md-flex justify-content-between align-items-center">
+                <h3 class="mb-3 mb-md-0">Sign Up For Our Newsletter</h3>
+
+                <div class="input-group newsletter-input-container">
+                    <input type="text" class="form-control" id="newsletterInput" placeholder="example@mail.com">
+                    <button class="btn btn-dark btn-lg" type="button" id="button-addon2">Button</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <%- include("./partials/footer"); -%>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+</body>
