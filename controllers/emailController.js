@@ -29,7 +29,7 @@ sendVerificationEmail = async (emailToken, emailAddress) => {
   try {
     // Send message to my Email
     let info = await transporter.sendMail({
-      from: '"Email Verification" <noreply@email.com>', // sender address
+      from: '"Email Verification" <noreply@lampropoulos.me>', // sender address
       to: emailAddress, // list of receivers
       subject: "NoReply", // Subject line
       html: userOutput, // html body

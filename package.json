@@ -16,6 +16,7 @@
     "express": "^4.17.1",
     "express-flash": "^0.0.2",
     "express-session": "^1.17.2",
+    "jose": "^3.15.4",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.13.7",
     "nodemailer": "^6.6.3",

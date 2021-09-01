@@ -105,14 +105,14 @@ app.post("/api/contact", async (req, res) => {
 
   // Send message to my Email
   let info = await transporter.sendMail({
-    from: '"Example API" <example@api.com>', // sender address
+    from: '"Lampropoulos Support" <support@lampropoulos.me>', // sender address
     to: "owner@api.com", // list of receivers
     subject: "Contact Form Submission", // Subject line
     html: output, // html body
   });
 
   info = await transporter.sendMail({
-    from: '"Example API" <example@api.com>', // sender address
+    from: '"Lampropoulos Support" <support@lampropoulos.me>', // sender address
     to: req.body.email, // list of receivers
     subject: "Contact Form Submission", // Subject line
     text: userOutput, // plain text body
