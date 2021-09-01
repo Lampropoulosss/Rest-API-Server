@@ -100,7 +100,7 @@ const register_post = async (req, res) => {
 
   try {
     let user = await User.create({ name, email, password });
-    const token = createToken(user._id);
+    const token = await createToken(user._id);
     const emailToken = createEmailToken(user._id);
     const emailResult = sendVerificationEmail(emailToken, user.email);
     if (emailResult) {
